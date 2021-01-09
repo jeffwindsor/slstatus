@@ -1,5 +1,3 @@
-/* See LICENSE file for copyright and license details. */
-
 /* interval between updates (in ms) */
 const unsigned int interval = 1000;
 
@@ -8,6 +6,15 @@ static const char unknown_str[] = "n/a";
 
 /* maximum output string length */
 #define MAXLEN 2048
+
+static const struct arg args[] = {
+	/* function format          argument */
+		//{ cpu_perc, " [CPU %s%%]", NULL},
+		//{ ram_perc, " [RAM %s%%]", NULL},
+		//{ disk_free,"[hdd %sB]  | ",      "/" },
+		{ datetime, " %s","%a %b %d %R" },
+        { battery_perc, " [%s%%]", "BAT1"}
+};
 
 /*
  * function            description                     argument (example)
@@ -61,11 +68,3 @@ static const char unknown_str[] = "n/a";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
-static const struct arg args[] = {
-	/* function format          argument */
-		//{ cpu_perc, " [CPU %s%%]", NULL},
-		//{ ram_perc, " [RAM %s%%]", NULL},
-		//{ disk_free,"[hdd %sB]  | ",      "/" },
-		{ datetime, " %s","%a %b %d %R" },
-        { battery_perc, " [%s%%]", "BAT1"}
-};
