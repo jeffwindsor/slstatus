@@ -10,21 +10,18 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
 		{ datetime,     " %s","%a %b %d %R" },
-		{ cpu_perc,     " [CPU:%s%%]", NULL},
-		{ ram_perc,     " [RAM:%s%%]", NULL},
-		{ disk_perc,    " [HDD:%s%%]", "/" },
-        { battery_perc, " [BAT:%s%%]", "BAT1"}
+		{ cpu_perc,     " | CPU:%s%%", NULL},
+		{ ram_perc,     " | RAM:%s%%", NULL},
+		{ disk_perc,    " | HDD:%s%%", "/" },
+        { battery_perc, " | BAT:%s%% ", "BAT1"}
 };
 
 /*
  * function            description                     argument (example)
  *
  * battery_perc        battery percentage              battery name (BAT0)
- *                                                     NULL on OpenBSD/FreeBSD
  * battery_state       battery charging state          battery name (BAT0)
- *                                                     NULL on OpenBSD/FreeBSD
  * battery_remaining   battery remaining HH:MM         battery name (BAT0)
- *                                                     NULL on OpenBSD/FreeBSD
  * cpu_perc            cpu usage in percent            NULL
  * cpu_freq            cpu frequency in MHz            NULL
  * datetime            date and time                   format string (%F %T)
