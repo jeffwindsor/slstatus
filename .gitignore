@@ -4,6 +4,9 @@
 
 slstatus
 
+*.orig
+*.rej
+
 ### C++ ###
 # Prerequisites
 *.d
