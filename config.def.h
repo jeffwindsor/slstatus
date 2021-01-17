@@ -1,5 +1,3 @@
-/* See LICENSE file for copyright and license details. */
-
 /* interval between updates (in ms) */
 const unsigned int interval = 1000;
 
@@ -9,15 +7,21 @@ static const char unknown_str[] = "n/a";
 /* maximum output string length */
 #define MAXLEN 2048
 
+static const struct arg args[] = {
+	/* function format          argument */
+		{ datetime,     " %s","%a %b %d %R" },
+		{ cpu_perc,     " | CPU:%s%%", NULL},
+		{ ram_perc,     " | RAM:%s%%", NULL},
+		{ disk_perc,    " | HDD:%s%%", "/" },
+        { battery_perc, " | BAT:%s%% ", "BAT1"}
+};
+
 /*
  * function            description                     argument (example)
  *
  * battery_perc        battery percentage              battery name (BAT0)
- *                                                     NULL on OpenBSD/FreeBSD
  * battery_state       battery charging state          battery name (BAT0)
- *                                                     NULL on OpenBSD/FreeBSD
  * battery_remaining   battery remaining HH:MM         battery name (BAT0)
- *                                                     NULL on OpenBSD/FreeBSD
  * cpu_perc            cpu usage in percent            NULL
  * cpu_freq            cpu frequency in MHz            NULL
  * datetime            date and time                   format string (%F %T)
@@ -61,10 +65,3 @@ static const char unknown_str[] = "n/a";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
-static const struct arg args[] = {
-	/* function format          argument */
-		{ cpu_perc, "[CPU %s%%]  ",   NULL  },
-		{ ram_perc, "[RAM %s%%]  ", NULL	      },
-		/*{ disk_free,"[hdd %sB]  | ",      "/" },*/
-		{ datetime, "%s","%a %b %d %R" }
-};
