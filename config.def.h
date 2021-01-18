@@ -9,11 +9,13 @@ static const char unknown_str[] = "n/a";
 
 static const struct arg args[] = {
 	/* function format          argument */
-		{ datetime,     " %s","%a %b %d %R" },
-		{ cpu_perc,     " | CPU:%s%%", NULL},
-		{ ram_perc,     " | RAM:%s%%", NULL},
-		{ disk_perc,    " | HDD:%s%%", "/" },
-        { battery_perc, " | BAT:%s%% ", "BAT1"}
+		{ datetime,     " %s  %s","%a %b %d" "%R" },
+        { wifi_perc,    " |  :%s%% ", ""},           
+        { vol_perc,     "  :%s%%", ""},           
+		{ cpu_perc,     "  :%s%%", NULL},
+		{ ram_perc,     "  :%s%%", NULL},
+		{ disk_perc,    "  :%s%%", "/" },
+        { battery_perc, "  :%s%% ", "BAT1"}
 };
 
 /*
